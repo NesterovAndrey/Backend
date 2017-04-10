@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+        <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+        <!-- Generated 22.03.2016 0:22:01 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+<class name="com.backend.domain.application.Application" table="app">
+    <id name="id" type="string">
+        <column name="ID" />
+        <generator class="utils.hibernate.IDGenerator"/>
+    </id>
+    <discriminator column="app_type" type="string"/>
+
+    <property name="name"/>
+    <!--<property name="dateAdded" type="date"/>-->
+    <property name="privateKey" column="private_key" type="string" />
+    <many-to-one name="owner" column="owner_id" class="com.backend.domain.authenticationUser.profile.UserProfile"/>
+    <!-- <map name="versions" cascade="all">
+         <key column="app_id"/>
+         <index column="version_key" type="double"/>
+         <one-to-many class="com.backend.domainn.application.AppVersion"/>
+     </map>-->
+
+    <subclass name="com.backend.domain.application.ApplicationImpl" discriminator-value="app"/>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22.03.2016 0:22:01 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.backend.domain.application.roles.UserRole" table="user_role">
+        <id name="id" type="long">
+            <column name="id"/>
+            <generator class="increment"/>
+        </id>
+       <!-- <properties name="app_user_unique_key" unique="true">-->
+            <many-to-one name="profile" column="profile_id" class="com.backend.domain.authenticationUser.profile.UserProfile" lazy="false"/>
+            <many-to-one name="app" column="app_id" class="com.backend.domain.application.Application" lazy="false"/>
+        <!--</properties>-->
+        <property name="role" column="role">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">com.backend.domain.application.roles.Role</param>
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>

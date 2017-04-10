@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22.03.2016 0:22:01 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.backend.domain.event.data.Data" table="data">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="increment"/>
+        </id>
+
+        <property name="name" column="name" type="string"/>
+        <property name="value" column="value" type="string"/>
+
+    </class>
+</hibernate-mapping>

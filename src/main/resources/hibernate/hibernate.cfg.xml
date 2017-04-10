@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+ <hibernate-configuration>
+   <session-factory>
+  <!--<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+  <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+  <property name="connection.url">jdbc:mysql://localhost:8080/simplebackend</property>
+  <property name="connection.username">root</property>
+  <property name="hibernate.hbm2ddl.auto">create-drop</property>-->
+
+  <mapping resource="hibernate/App.hbm.xml"/>
+    <mapping resource="hibernate/AppInstall.hbm.xml"/>
+    <mapping resource="hibernate/InstallData.hbm.xml"/>
+  <mapping resource="hibernate/User.hbm.xml"/>
+  <mapping resource="hibernate/UserProfile.hbm.xml"/>
+  <mapping resource="hibernate/Session.hbm.xml"/>
+  <mapping resource="hibernate/Data.hbm.xml"/>
+  <mapping resource="hibernate/Event.hbm.xml"/>
+ </session-factory>
+</hibernate-configuration>

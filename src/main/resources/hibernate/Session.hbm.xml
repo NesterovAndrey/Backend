@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22.03.2016 0:22:01 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.backend.domain.session.Session" table="session">
+        <id name="id" type="long">
+            <column name="id" />
+            <generator class="increment"/>
+        </id>
+        <discriminator column="session_type" type="string"/>
+        
+
+       <property name="startTime" column="start_time" type="date"/>
+        <many-to-one name="app" column="app_id" class="com.backend.domain.application.Application"/>
+
+       <!-- <bag name="events"  lazy="false" cascade="all" inverse="true">
+            <key column="session_id"/>
+            <one-to-many class="com.backend.domainn.event.Event"/>
+        </bag>-->
+        <many-to-one name="install" column="install_id" class="com.backend.domain.application.applicationInstall.IApplicationInstall" cascade="delete"/>
+        <subclass name="com.backend.domain.session.AppSession" discriminator-value="app"/>
+    </class>
+</hibernate-mapping>

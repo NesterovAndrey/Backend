@@ -1,0 +1,11 @@
+<hibernate-mapping>
+    <class name="com.backend.domain.authenticationUser.User" table="user">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="utils.hibernate.IDGenerator"/>
+        </id>
+        <property name="username" column="username" type="string"/>
+        <property name="password" column="password" type="string"/>
+        <property name="role" column="role" type="string"/>
+    </class>
+</hibernate-mapping>

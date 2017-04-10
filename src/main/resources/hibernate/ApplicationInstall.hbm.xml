@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 22.03.2016 0:22:01 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.backend.domain.application.applicationInstall.IApplicationInstall" table="app_install">
+        <id name="id" type="string">
+            <column name="id" />
+            <generator class="utils.hibernate.IDGenerator"/>
+        </id>
+
+        <discriminator column="install_type" type="string"/>
+       <!-- <properties name="app_user_unique_key" unique="true">-->
+        <many-to-one name="app" column="app_id" class="com.backend.domain.application.Application"/>
+        <property name="installDate" column="install_date" type="date"/>
+        <one-to-one name="installData" class="com.backend.domain.application.applicationInstall.ApplicationInstallData" cascade="all"/>
+        <!--</properties>-->
+        <subclass name="com.backend.domain.application.applicationInstall.ApplicationInstall" discriminator-value="install"/>
+    </class>
+</hibernate-mapping>
